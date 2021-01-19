@@ -40,6 +40,19 @@ export default class home extends Component {
           })
       }
 
+      handleUpdate = id => {    
+        API.patch(`contacts/${id}`, { 
+            name: this.state.name,
+            email: this.state.email
+         })
+        .then(res => {
+            alert('Contact Updated!')
+            console.log(res);
+            console.log(res.data);
+            window.location.reload()
+          })
+      }
+
       deleteContact = id => {
         API.delete(`contacts/${id}`)
         .then(res => {
@@ -57,10 +70,19 @@ export default class home extends Component {
                     <h1>Contacts</h1>
                     <ul>
                         { this.state.contacts.map(contact =>
-                        <li>{contact.name}
-                        <br/>
-                        {contact.email}
-                        <button onClick={()=> this.deleteContact(contact._id)}>Delete</button>
+                        <li>
+                          <form onSubmit={()=> this.handleUpdate(contact._id)}>
+                          <label>
+                              Name:
+                              <input type="text" name="name" onChange={this.handleNameChange} placeholder={contact.name}/>
+                              <br/>
+                              Email:
+                              <input type="text" name="email" onChange={this.handleEmailChange} placeholder={contact.email}/>
+                          </label>
+                          <br/>
+                          <button type="submit">Update</button>
+                          </form>
+                          <button onClick={()=> this.deleteContact(contact._id)}>Delete</button>
                         </li>
                         )}
                     </ul>

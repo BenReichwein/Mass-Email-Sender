@@ -60,7 +60,10 @@ const contacts = (app) => {
         try {
             const updatedContacts = await Contacts.updateOne(
                 {_id:req.params.contactsID},
-                {$set: {email:req.body.email}}
+                {$set: {
+                    name:req.body.name,
+                    email:req.body.email,
+                }}
             );
             res.json(updatedContacts);
         } catch (err) {
