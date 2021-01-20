@@ -8194,6 +8194,11 @@
   "resolved" "https://registry.npmjs.org/node-releases/-/node-releases-1.1.69.tgz"
   "version" "1.1.69"
 
+"nodemailer@^6.4.17":
+  "integrity" "sha512-89ps+SBGpo0D4Bi5ZrxcrCiRFaMmkCt+gItMXQGzEtZVR3uAD3QAQIDoxTWnx3ky0Dwwy/dhFrQ+6NNGXpw/qQ=="
+  "resolved" "https://registry.npmjs.org/nodemailer/-/nodemailer-6.4.17.tgz"
+  "version" "6.4.17"
+
 "nodemon@^2.0.6":
   "integrity" "sha512-XHzK69Awgnec9UzHr1kc8EomQh4sjTQ8oRf8TsGrSmHDx9/UmiGG9E/mM3BuTfNeFwdNBvrqQq/RHL0xIeyFOA=="
   "resolved" "https://registry.npmjs.org/nodemon/-/nodemon-2.0.7.tgz"
@@ -11055,6 +11060,11 @@
   "integrity" "sha1-CzpmK10Ewxd7GSa+qCsD+Dei70E="
   "resolved" "https://registry.npmjs.org/sliced/-/sliced-1.0.1.tgz"
   "version" "1.0.1"
+
+"smtp@^0.1.4":
+  "integrity" "sha1-F3m7fmnA4Qd7cir/Q2dAjE29BFQ="
+  "resolved" "https://registry.npmjs.org/smtp/-/smtp-0.1.4.tgz"
+  "version" "0.1.4"
 
 "snapdragon-node@^2.0.1":
   "integrity" "sha512-O27l4xaMYt/RSQ5TR3vpWCAB5Kb/czIcqUFOM/C4fYcLnbZUc1PkjTAMjof2pBWaSTwOUd6qUHcFGVGj7aIwnw=="

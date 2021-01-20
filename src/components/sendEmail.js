@@ -29,8 +29,17 @@ export default class sendEmail extends Component {
       handleSubmit = e => {
         e.preventDefault();
 
+        let contactEmails = ''
+        let emails = []
+
+        this.state.contacts.map(contacts => {
+          emails.push(contacts.email)
+          contactEmails = emails.join(', ')
+          return contactEmails
+       });
+
         API.post(`email`, {
-            emails: 'reichweinben@gmail.com', 
+            emails: contactEmails,
             subject: this.state.subject,
             html: this.state.html
          })
@@ -53,10 +62,14 @@ export default class sendEmail extends Component {
                 <form onSubmit={this.handleSubmit}>
                 <label>
                     Subject:
+                    <br/>
                     <input type="text" name="subject" onChange={this.handleSubjectChange} />
+                    <br/>
                     Html:
+                    <br/>
                     <textarea type="text" name="html" onChange={this.handleHtmlChange} />
                 </label>
+                <br/>
                 <button type="submit">Send</button>
                 </form>
             </div>

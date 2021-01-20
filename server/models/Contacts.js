@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const ContactSchema = mongoose.Schema({
     name: {
-        unique: true,
         type: String,
         required: true
     },

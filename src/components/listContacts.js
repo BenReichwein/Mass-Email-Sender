@@ -36,6 +36,9 @@ export default class listContacts extends Component {
             console.log(res.data);
             window.location.reload()
           })
+        .catch(res => {
+          alert(res.data.message)
+        })
       }
 
       deleteContact = id => {

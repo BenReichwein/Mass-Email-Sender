@@ -17,7 +17,7 @@ const contacts = (app) => {
             !req.body.email
           )
             return res.status(400).json({
-              err: 'Name or Email not provided',
+              message: 'Name or Email not provided',
             });
     
           if (
@@ -25,7 +25,7 @@ const contacts = (app) => {
               /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             )
           )
-            return res.status(422).json({ err: 'Email format is not valid' });
+            return res.status(422).json({ message: 'Email format is not valid' });
 
         const contact = new Contacts({
             name: req.body.name,

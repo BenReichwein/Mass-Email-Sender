@@ -38,19 +38,27 @@ export default class addContacts extends Component {
             console.log(res.data);
             window.location.reload()
           })
+        .catch(res => {
+          alert(res)
+        })
       }
 
     render() {
         return (
             <div>
                 <h1>Add Contact</h1>
+                <h5># of contacts: {this.state.contacts.length}</h5>
                 <form onSubmit={this.handleSubmit}>
                 <label>
                     Name:
+                    <br/>
                     <input type="text" name="name" onChange={this.handleNameChange} />
+                    <br/>
                     Email:
+                    <br/>
                     <input type="text" name="email" onChange={this.handleEmailChange} />
                 </label>
+                <br/>
                 <button type="submit">Add</button>
                 </form>
             </div>
