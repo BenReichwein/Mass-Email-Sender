@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import API from '../../api';
 
-export default class home extends Component {
+export default class listContacts extends Component {
     state = {
         contacts: [],
         name: '',
