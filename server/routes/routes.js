@@ -1,5 +1,6 @@
 const contacts = require('./contacts');
 const user = require('./user');
+const email = require('./email')
 
 const appRouter = (app, fs) => {
     app.get('/', (req, res) => {
@@ -19,6 +20,7 @@ const appRouter = (app, fs) => {
     // Routes
     contacts(app);
     user(app);
+    email(app);
 }
 
 module.exports = appRouter;

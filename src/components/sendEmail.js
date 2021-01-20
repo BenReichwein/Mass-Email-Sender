@@ -4,6 +4,7 @@ import API from '../api';
 export default class sendEmail extends Component {
     state = {
         contacts: [],
+        emails: [],
         name: '',
         email: '',
         subject: '',
@@ -11,10 +12,17 @@ export default class sendEmail extends Component {
       }
     
       componentDidMount() {
+        // Gets contacts
         API.get(`contacts`)
           .then(res => {
             const contacts = res.data;
             this.setState({ contacts });
+          })
+        // Gets previous emails
+        API.get(`email`)
+          .then(res => {
+            const emails = res.data;
+            this.setState({ emails });
           })
       }
 
@@ -44,15 +52,29 @@ export default class sendEmail extends Component {
             html: this.state.html
          })
         .then(res => {
-            alert(res.data.message)
-            console.log(res);
+            alert('Email Sent')
             console.log(res.data);
             window.location.reload()
           })
+          .catch(res => {
+            alert('Email did not send, try again later')
+            console.log(res.data)
+          })
+      }
+
+      deleteEmail = id => {
+        API.delete(`email/${id}`)
+        .then(res => {
+            alert('Email Deleted!')
+            console.log(res);
+            console.log(res.data);
+            window.location.reload()
+        })
       }
 
     render() {
         return (
+          <div>
             <div>
                 <h1>Send Email</h1>
                 <p>Sending to:</p>
@@ -73,6 +95,18 @@ export default class sendEmail extends Component {
                 <button type="submit">Send</button>
                 </form>
             </div>
+            <div>
+              <h1>Previous Emails</h1>
+              <ul>
+                  { this.state.emails.map(email =>
+                  <li>
+                    {email.email}
+                    <button onClick={()=> this.deleteEmail(email._id)}>Delete</button>
+                  </li>
+                  )}
+              </ul>
+            </div>
+          </div>
         )
     }
 }

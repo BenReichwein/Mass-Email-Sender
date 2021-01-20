@@ -10,9 +10,9 @@ const ContactSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    data: {
+    createdAt: {
         type: Date,
-        default: Date.now
+        default: Date.now()
     }
 });
 
