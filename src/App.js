@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './components/home/home'
+import listContacts from './components/listContacts'
+import addContacts from './components/addContacts'
+import sendEmail from './components/sendEmail'
 import './App.css';
 
 function App() {
@@ -8,7 +10,9 @@ function App() {
       <Router>
           <div className="App">
               <Switch>
-                  <Route exact path="/" component={Home} />
+                  <Route exact path="/listcontacts" component={listContacts} />
+                  <Route exact path="/addcontacts" component={addContacts} />
+                  <Route exact path="/sendemail" component={sendEmail} />
               </Switch>
           </div>
       </Router>

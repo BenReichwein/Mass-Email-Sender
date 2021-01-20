@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import API from '../../api';
+import API from '../api';
 
-export default class listContacts extends Component {
+export default class addContacts extends Component {
     state = {
         contacts: [],
         name: '',
@@ -23,34 +23,37 @@ export default class listContacts extends Component {
       handleEmailChange = e => {
         this.setState({ email: e.target.value });
       }
+    
+      handleSubmit = e => {
+        e.preventDefault();
 
-      deleteContact = id => {
-        API.delete(`contacts/${id}`)
+    
+        API.post(`contacts`, { 
+            name: this.state.name,
+            email: this.state.email
+         })
         .then(res => {
-            alert('Contact Deleted!')
+            alert('Contact Added!')
             console.log(res);
             console.log(res.data);
             window.location.reload()
-        })
+          })
       }
 
     render() {
         return (
             <div>
-                <h1>Contacts</h1>
-                <ul>
-                    { this.state.contacts.map(contact =>
-                    <li>
-                    {contact.name}
-                    <br/>
-                    {contact.email}
-                    <button onClick={()=> this.deleteContact(contact._id)}>Delete</button>
-                    </li>
-                    )}
-                </ul>
+                <h1>Add Contact</h1>
+                <form onSubmit={this.handleSubmit}>
+                <label>
+                    Name:
+                    <input type="text" name="name" onChange={this.handleNameChange} />
+                    Email:
+                    <input type="text" name="email" onChange={this.handleEmailChange} />
+                </label>
+                <button type="submit">Add</button>
+                </form>
             </div>
         )
     }
 }
-
-

@@ -18,6 +18,7 @@
     "mocha": "^8.2.1",
     "mongo-sanitize": "^1.1.0",
     "mongoose": "^5.11.6",
+    "nodemailer": "^6.4.17",
     "nodemon": "^2.0.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -25,6 +26,7 @@
     "react-scripts": "4.0.1",
     "redis": "^3.0.2",
     "request": "^2.88.2",
+    "smtp": "^0.1.4",
     "util": "^0.12.3",
     "web-vitals": "^0.2.4"
   },

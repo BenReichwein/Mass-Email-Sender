@@ -1,4 +1,5 @@
 const Contacts = require('../models/Contacts')
+let mailer = require("nodemailer");
 
 const contacts = (app) => {
     app.get('/contacts', async (req, res) => {
@@ -49,7 +50,7 @@ const contacts = (app) => {
     // Delete post
     app.delete('/contacts/:contactsID', async (req, res) => {
         try {
-            const removedContact = await Contacts.remove({_id: req.params.contactsID});
+            const removedContact = await Contacts.deleteOne({_id: req.params.contactsID});
             res.json(removedContact)
         } catch (err) {
             res.json({message:`Error: ${err}`})
@@ -70,6 +71,35 @@ const contacts = (app) => {
             res.json({message:`Error: ${err}`})
         }
     })
+    // Sends Email
+    app.post('/email', async (req, res) => {
+        let transporter = mailer.createTransport({
+            service: 'gmail',
+            type: "SMTP",
+            host: "smtp.gmail.com",
+            secure: true,
+            auth: {
+              user: 'arcanederp@gmail.com', // make sure this email lesssecure! (https://myaccount.google.com/lesssecureapps)
+              pass: 'Gamingmaster4224'
+            }
+          });
+          
+          let mail = {
+            from: 'arcanederp@gmail.com',
+            to: req.body.emails,
+            subject: req.body.subject,
+            html: req.body.html
+          };
+          
+          transporter.sendMail(mail, function(error, info){
+            if (error) {
+              console.log(error);
+              res.json({message: `Error: ${error}`})
+            } else {
+                res.json({message: `Email Sent`})
+            }
+          });
+    });
 };
 
 module.exports = contacts;
