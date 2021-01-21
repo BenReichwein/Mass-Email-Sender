@@ -1,5 +1,5 @@
-### Node.js jsonwebtoken Example
-> An example of how to protect routes and get a token
+### Mass Email Sender
+> A Mass Email sender with a simple contact system
 
 ## Quick Start
 ```
@@ -11,4 +11,10 @@ npm run server
 
 # Start React App
 npm start
+```
+# Make a keys.js in /src folder
+```
+module.exports = {
+    database: "MONGO DB KEY FOR CONFIG",
+}
 ```
