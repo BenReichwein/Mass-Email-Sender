@@ -73,6 +73,9 @@ export default class listContacts extends Component {
                       </li>
                       )}
                   </ul>
+                  <button onClick={()=> window.location.href='/addcontacts'}>Add Contact</button>
+                  <br/>
+                  <button onClick={()=> window.location.href='/sendemail'}>Send Email</button>
               </div>
         )
     }

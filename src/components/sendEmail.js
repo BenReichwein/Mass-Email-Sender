@@ -106,6 +106,9 @@ export default class sendEmail extends Component {
                   )}
               </ul>
             </div>
+            <button onClick={()=> window.location.href='/addcontacts'}>Add Contact</button>
+            <br/>
+            <button onClick={()=> window.location.href='/'}>List Contacts</button>
           </div>
         )
     }

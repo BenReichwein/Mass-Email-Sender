@@ -61,6 +61,9 @@ export default class addContacts extends Component {
                 <br/>
                 <button type="submit">Add</button>
                 </form>
+                <button onClick={()=> window.location.href='/'}>List Contact</button>
+                <br/>
+                <button onClick={()=> window.location.href='/sendemail'}>Send Email</button>
             </div>
         )
     }
