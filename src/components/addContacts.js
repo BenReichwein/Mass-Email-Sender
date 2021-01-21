@@ -39,7 +39,7 @@ export default class addContacts extends Component {
             window.location.reload()
           })
         .catch(res => {
-          alert(res)
+            alert(res)
         })
       }
 

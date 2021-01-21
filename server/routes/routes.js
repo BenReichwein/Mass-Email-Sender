@@ -1,5 +1,4 @@
 const contacts = require('./contacts');
-const user = require('./user');
 const email = require('./email')
 
 const appRouter = (app, fs) => {
@@ -19,7 +18,6 @@ const appRouter = (app, fs) => {
     })
     // Routes
     contacts(app);
-    user(app);
     email(app);
 }
 
