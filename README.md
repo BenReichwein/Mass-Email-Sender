@@ -12,7 +12,7 @@ npm run server
 # Start React App
 npm start
 ```
-### Make a keys.js in /src folder
+### Make a keys.js in the project folder
 ```
 module.exports = {
     database: "MONGO DB KEY FOR CONFIG",
