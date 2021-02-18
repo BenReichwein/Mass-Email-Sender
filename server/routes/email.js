@@ -1,5 +1,5 @@
 const Email = require('../models/Email')
-let mailer = require("nodemailer");
+const mailer = require("nodemailer");
 
 const email = (app) => {
     app.get('/email', async (req, res) => {
